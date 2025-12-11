@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Courses</title>
+    <link rel="stylesheet" href="/static/css/courses.css">
 </head>
 <body>
-    /* Courses content goes here */
+    <div class="logout-container">
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
     <h2>All Courses</h2>
     <ul>
         {% for course in courses %}
-        <li><a href="/courses/{{ course[0] }}">{{ course[1] }}</a> - {{ course[2] }}</li>
+        <li>
+            <a href="/courses/{{ course[0] }}">{{ course[1] }}</a> - {{ course[2] }}
+        </li>
         {% endfor %}
     </ul>
     {% if has_enrollments %}
-    <a href="/mycourses">My Courses</a>
+    <a href="/mycourses" class="my-courses">My Courses</a>
     {% endif %}
 </body>
 </html>

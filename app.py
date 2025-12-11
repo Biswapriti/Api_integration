@@ -200,5 +200,10 @@ def get_course_rating(course_id):
     count = result[1]
     return jsonify({'course_id': course_id, 'average_rating': float(avg_rating), 'total_ratings': count})
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
+
 if __name__ == '__main__':
     app.run(debug=True)
